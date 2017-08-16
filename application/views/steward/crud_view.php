@@ -9,13 +9,13 @@
 			font-size: 1.1em;
 			background: #fff;
 		}
-		a {
+		.wrap a {
 		    color: #1E35CD;
 		    text-decoration: none;
 		    font-size: 100%;
 		    padding: .3em .3em .3em .3em;
 		}
-		a:hover	{
+		.wrap a:hover	{
 			text-decoration: none;
 			color: #fff;
 			background: #002cdb;

@@ -38,9 +38,9 @@
      inkscape:window-height="998"
      id="namedview5178"
      showgrid="false"
-     inkscape:zoom="2.0459184"
-     inkscape:cx="382.68021"
-     inkscape:cy="365.95936"
+     inkscape:zoom="1.0229592"
+     inkscape:cx="132.47257"
+     inkscape:cy="470.20449"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -98,10 +98,6 @@
      width="3.67"
      height="81.5"
      id="rect4451" />
-  <a
-     id="a4430"
-     xlink:href="http://saloon/scheme/order?q=403"
-     target="_parent">
     <rect
        inkscape:label="#rect4453"
        id="403"
@@ -110,11 +106,6 @@
        y="15.5"
        x="127.25"
        class="cls-4" />
-  </a>
-  <a
-     id="a4433"
-     xlink:href="http://saloon/scheme/order?q=404"
-     target="_parent">
     <rect
        inkscape:label="#rect4455"
        id="404"
@@ -123,11 +114,6 @@
        y="15.5"
        x="190.25"
        class="cls-4" />
-  </a>
-  <a
-     id="a4436"
-     xlink:href="http://saloon/scheme/order?q=405"
-     target="_parent">
     <rect
        inkscape:label="#rect4457"
        id="405"
@@ -136,11 +122,6 @@
        y="15.5"
        x="251.25"
        class="cls-4" />
-  </a>
-  <a
-     id="a4439"
-     xlink:href="http://saloon/scheme/order?q=406"
-     target="_parent">
     <rect
        inkscape:label="#rect4459"
        id="406"
@@ -149,20 +130,13 @@
        y="15.5"
        x="314.75"
        class="cls-4" />
-  </a>
-  <a
-     id="a4139"
-     xlink:href="http://saloon/scheme/order?q=409"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4461"
-       id="409"
-       height="44"
-       width="22.5"
-       y="15.5"
-       x="381.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="381.25"
+     y="15.5"
+     width="22.5"
+     height="44"
+     id="rect4461" />
   <rect
      class="cls-5"
      x="111.08"
@@ -331,19 +305,13 @@
      width="13.5"
      height="11.5"
      id="rect4509" />
-  <a
-     id="a4136"
-     xlink:href="http://saloon/scheme/order?q=402"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4511"
-       id="402"
-       height="54"
-       width="22.5"
-       y="123"
-       x="170.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="170.75"
+     y="123"
+     width="22.5"
+     height="54"
+     id="rect4511" />
   <rect
      class="cls-5"
      x="154.58"
@@ -386,19 +354,13 @@
      width="13.5"
      height="11.5"
      id="rect4523" />
-  <a
-     id="a4133"
-     xlink:href="http://saloon/scheme/order?q=401"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4525"
-       id="401"
-       height="54"
-       width="22.5"
-       y="123.5"
-       x="230.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="230.25"
+     y="123.5"
+     width="22.5"
+     height="54"
+     id="rect4525" />
   <rect
      class="cls-5"
      x="214.08"
@@ -441,19 +403,13 @@
      width="13.5"
      height="11.5"
      id="rect4537" />
-  <a
-     id="a4142"
-     xlink:href="http://saloon/scheme/order?q=407"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4539"
-       id="407"
-       height="25"
-       width="22.5"
-       y="86"
-       x="228.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="228.25"
+     y="86"
+     width="22.5"
+     height="25"
+     id="rect4539" />
   <rect
      class="cls-5"
      x="211.58"
@@ -468,19 +424,13 @@
      width="13.5"
      height="11.5"
      id="rect4543" />
-  <a
-     id="a4145"
-     xlink:href="http://saloon/scheme/order?q=408"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4545"
-       id="408"
-       height="25"
-       width="22.5"
-       y="86"
-       x="290.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="290.75"
+     y="86"
+     width="22.5"
+     height="25"
+     id="rect4545" />
   <rect
      class="cls-5"
      x="274.08"
@@ -566,19 +516,13 @@
        y="0"
        id="tspan4577">Л</tspan>
   </text>
-  <a
-     id="a4064"
-     xlink:href="http://saloon/scheme/order?q=103"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4581"
-       id="103"
-       height="24.67"
-       width="47.33"
-       y="369.67"
-       x="45.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="45.75"
+     y="369.67"
+     width="47.33"
+     height="24.67"
+     id="rect4581" />
   <rect
      class="cls-5"
      x="46.42"
@@ -622,19 +566,13 @@
      width="22"
      height="10"
      id="rect4595" />
-  <a
-     id="a4061"
-     xlink:href="http://saloon/scheme/order?q=102"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4597"
-       id="102"
-       height="24.67"
-       width="47.33"
-       y="417.33"
-       x="45.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="45.75"
+     y="417.33"
+     width="47.33"
+     height="24.67"
+     id="rect4597" />
   <rect
      class="cls-5"
      x="46.42"
@@ -678,19 +616,13 @@
      d="M-104,84.9v-.65l.83-.8c2-1.89,2.9-2.9,2.9-4.08a1.38,1.38,0,0,0-1.54-1.52,2.65,2.65,0,0,0-1.65.66l-.34-.74a3.45,3.45,0,0,1,2.19-.79,2.19,2.19,0,0,1,2.39,2.27c0,1.44-1,2.6-2.69,4.19l-.61.58v0H-99v.88Z"
      transform="translate(174.75 348.6)"
      id="path4611" />
-  <a
-     id="a4085"
-     xlink:href="http://saloon/scheme/order?q=202"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4613"
-       id="202"
-       height="24.67"
-       width="47.33"
-       y="368.17"
-       x="252.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="252.75"
+     y="368.17"
+     width="47.33"
+     height="24.67"
+     id="rect4613" />
   <rect
      class="cls-5"
      x="253.42"
@@ -719,19 +651,13 @@
      width="22"
      height="10"
      id="rect4621" />
-  <a
-     id="a4121"
-     xlink:href="http://saloon/scheme/order?q=303"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4623"
-       id="303"
-       height="24.67"
-       width="68"
-       y="434"
-       x="512.92"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="512.92"
+     y="434"
+     width="68"
+     height="24.67"
+     id="rect4623" />
   <rect
      class="cls-5"
      x="513.42"
@@ -760,19 +686,13 @@
      width="22"
      height="10"
      id="rect4631" />
-  <a
-     id="a4088"
-     xlink:href="http://saloon/scheme/order?q=203"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4633"
-       id="203"
-       height="24.67"
-       width="47.33"
-       y="271.67"
-       x="253.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="253.75"
+     y="271.67"
+     width="47.33"
+     height="24.67"
+     id="rect4633" />
   <rect
      class="cls-5"
      x="254.42"
@@ -801,19 +721,13 @@
      width="22"
      height="10"
      id="rect4641" />
-  <a
-     id="a4130"
-     xlink:href="http://saloon/scheme/order?q=306"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4643"
-       id="306"
-       height="24.67"
-       width="47.33"
-       y="274.67"
-       x="534.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="534.25"
+     y="274.67"
+     width="47.33"
+     height="24.67"
+     id="rect4643" />
   <rect
      class="cls-5"
      x="534.08"
@@ -842,19 +756,13 @@
      width="22"
      height="10"
      id="rect4651" />
-  <a
-     id="a4127"
-     xlink:href="http://saloon/scheme/order?q=305"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4653"
-       id="305"
-       height="24.67"
-       width="47.33"
-       y="322.17"
-       x="534.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="534.25"
+     y="322.17"
+     width="47.33"
+     height="24.67"
+     id="rect4653" />
   <rect
      class="cls-5"
      x="534.08"
@@ -883,19 +791,13 @@
      width="22"
      height="10"
      id="rect4661" />
-  <a
-     id="a4097"
-     xlink:href="http://saloon/scheme/order?q=206"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4663"
-       id="206"
-       height="24.67"
-       width="47.33"
-       y="373.17"
-       x="385.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="385.25"
+     y="373.17"
+     width="47.33"
+     height="24.67"
+     id="rect4663" />
   <rect
      class="cls-5"
      x="385.25"
@@ -924,19 +826,13 @@
      width="22"
      height="10"
      id="rect4671" />
-  <a
-     id="a4100"
-     xlink:href="http://saloon/scheme/order?q=207"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4673"
-       id="207"
-       height="24.67"
-       width="47.33"
-       y="420.17"
-       x="385.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="385.25"
+     y="420.17"
+     width="47.33"
+     height="24.67"
+     id="rect4673" />
   <rect
      class="cls-5"
      x="385.25"
@@ -965,19 +861,13 @@
      width="22"
      height="10"
      id="rect4681" />
-  <a
-     id="a4094"
-     xlink:href="http://saloon/scheme/order?q=205"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4683"
-       id="205"
-       height="24.67"
-       width="47.33"
-       y="320.67"
-       x="385.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="385.25"
+     y="320.67"
+     width="47.33"
+     height="24.67"
+     id="rect4683" />
   <rect
      class="cls-5"
      x="385.25"
@@ -1006,19 +896,13 @@
      width="22"
      height="10"
      id="rect4691" />
-  <a
-     id="a4091"
-     xlink:href="http://saloon/scheme/order?q=204"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4693"
-       id="204"
-       height="24.67"
-       width="47.33"
-       y="270.67"
-       x="385.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="385.25"
+     y="270.67"
+     width="47.33"
+     height="24.67"
+     id="rect4693" />
   <rect
      class="cls-5"
      x="385.25"
@@ -1120,58 +1004,34 @@
      d="M102.71-62.13a3.63,3.63,0,0,0,1.73.48c1.34,0,1.77-.85,1.76-1.51,0-1.09-1-1.56-2-1.56h-.59v-.79h.59c.77,0,1.74-.4,1.74-1.32,0-.62-.4-1.18-1.37-1.18a2.86,2.86,0,0,0-1.56.52l-.29-.77a3.78,3.78,0,0,1,2.05-.6c1.54,0,2.23.91,2.23,1.86a2,2,0,0,1-1.44,1.85v0a2,2,0,0,1,1.74,2c0,1.25-1,2.34-2.84,2.34a4,4,0,0,1-2-.53Z"
      transform="translate(174.75 348.6)"
      id="path4727" />
-  <a
-     id="a4112"
-     xlink:href="http://saloon/scheme/order?q=211"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4729"
-       id="211"
-       height="24.67"
-       width="27.33"
-       y="269.67"
-       x="331.75"
-       class="cls-4" />
-  </a>
-  <a
-     id="a4109"
-     xlink:href="http://saloon/scheme/order?q=210"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4731"
-       id="210"
-       height="24.67"
-       width="27.33"
-       y="319.67"
-       x="331.75"
-       class="cls-4" />
-  </a>
-  <a
-     id="a4106"
-     xlink:href="http://saloon/scheme/order?q=209"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4733"
-       id="209"
-       height="24.67"
-       width="27.33"
-       y="371.67"
-       x="331.75"
-       class="cls-4" />
-  </a>
-  <a
-     id="a4103"
-     xlink:href="http://saloon/scheme/order?q=208"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4735"
-       id="208"
-       height="24.67"
-       width="27.33"
-       y="421.67"
-       x="331.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="331.75"
+     y="269.67"
+     width="27.33"
+     height="24.67"
+     id="rect4729" />
+  <rect
+     class="cls-4"
+     x="331.75"
+     y="319.67"
+     width="27.33"
+     height="24.67"
+     id="rect4731" />
+  <rect
+     class="cls-4"
+     x="331.75"
+     y="371.67"
+     width="27.33"
+     height="24.67"
+     id="rect4733" />
+  <rect
+     class="cls-4"
+     x="331.75"
+     y="421.67"
+     width="27.33"
+     height="24.67"
+     id="rect4735" />
   <rect
      class="cls-5"
      x="334.75"
@@ -1242,19 +1102,13 @@
      width="22"
      height="10"
      id="rect4755" />
-  <a
-     id="a4118"
-     xlink:href="http://saloon/scheme/order?q=302"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4757"
-       id="302"
-       height="24.67"
-       width="68"
-       y="491"
-       x="513.42"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="513.42"
+     y="491"
+     width="68"
+     height="24.67"
+     id="rect4757" />
   <rect
      class="cls-5"
      x="513.92"
@@ -1297,19 +1151,13 @@
      width="22"
      height="10"
      id="rect4769" />
-  <a
-     id="a4115"
-     xlink:href="http://saloon/scheme/order?q=301"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4771"
-       id="301"
-       height="24.67"
-       width="68"
-       y="552.5"
-       x="512.92"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="512.92"
+     y="552.5"
+     width="68"
+     height="24.67"
+     id="rect4771" />
   <rect
      class="cls-5"
      x="513.42"
@@ -1352,19 +1200,13 @@
      width="22"
      height="10"
      id="rect4783" />
-  <a
-     id="a4124"
-     xlink:href="http://saloon/scheme/order?q=304"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4785"
-       id="304"
-       height="24.67"
-       width="68"
-       y="372.5"
-       x="513.42"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="513.42"
+     y="372.5"
+     width="68"
+     height="24.67"
+     id="rect4785" />
   <rect
      class="cls-5"
      x="536.25"
@@ -1469,19 +1311,13 @@
      width="177.33"
      height="42"
      id="rect4821" />
-  <a
-     id="a4082"
-     xlink:href="http://saloon/scheme/order?q=201"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4823"
-       id="201"
-       height="24.67"
-       width="47.33"
-       y="421.67"
-       x="252.25"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="252.25"
+     y="421.67"
+     width="47.33"
+     height="24.67"
+     id="rect4823" />
   <rect
      class="cls-5"
      x="252.92"
@@ -1535,19 +1371,13 @@
        y="0"
        id="tspan4841">С</tspan>
   </text>
-  <a
-     id="a4058"
-     xlink:href="http://saloon/scheme/order?q=101"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4845"
-       id="101"
-       height="75.67"
-       width="27.33"
-       y="487.33"
-       x="47.75"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="47.75"
+     y="487.33"
+     width="27.33"
+     height="75.67"
+     id="rect4845" />
   <rect
      class="cls-5"
      x="36.92"
@@ -1639,19 +1469,13 @@
        y="0"
        id="tspan4875">АР</tspan>
   </text>
-  <a
-     id="a4079"
-     xlink:href="http://saloon/scheme/order?q=500"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4879"
-       id="500"
-       height="136"
-       width="240"
-       y="630.67"
-       x="366.08"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="366.08"
+     y="630.67"
+     width="240"
+     height="136"
+     id="rect4879" />
   <text
      class="cls-13"
      transform="translate(439.6 687.17)"
@@ -1672,19 +1496,13 @@
      class="cls-20"
      transform="translate(471.75 707.17)"
      id="text4889">500</text>
-  <a
-     id="a4073"
-     xlink:href="http://saloon/scheme/order?q=106"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4891"
-       id="106"
-       height="24.67"
-       width="47.33"
-       y="653"
-       x="304.08"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="304.08"
+     y="653"
+     width="47.33"
+     height="24.67"
+     id="rect4891" />
   <rect
      class="cls-5"
      x="304.75"
@@ -1713,19 +1531,13 @@
      width="22"
      height="10"
      id="rect4899" />
-  <a
-     id="a4076"
-     xlink:href="http://saloon/scheme/order?q=107"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4901"
-       id="107"
-       height="24.67"
-       width="47.33"
-       y="713.67"
-       x="303.42"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="303.42"
+     y="713.67"
+     width="47.33"
+     height="24.67"
+     id="rect4901" />
   <rect
      class="cls-5"
      x="304.08"
@@ -1754,19 +1566,13 @@
      width="22"
      height="10"
      id="rect4909" />
-  <a
-     id="a4070"
-     xlink:href="http://saloon/scheme/order?q=105"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4911"
-       id="105"
-       height="24.67"
-       width="28.93"
-       y="655.33"
-       x="187.49"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="187.49"
+     y="655.33"
+     width="28.93"
+     height="24.67"
+     id="rect4911" />
   <rect
      class="cls-5"
      x="188.42"
@@ -1781,19 +1587,13 @@
      width="22"
      height="10"
      id="rect4915" />
-  <a
-     id="a4067"
-     xlink:href="http://saloon/scheme/order?q=104"
-     target="_parent">
-    <rect
-       inkscape:label="#rect4917"
-       id="104"
-       height="24.67"
-       width="28.93"
-       y="716"
-       x="187.08"
-       class="cls-4" />
-  </a>
+  <rect
+     class="cls-4"
+     x="187.08"
+     y="716"
+     width="28.93"
+     height="24.67"
+     id="rect4917" />
   <rect
      class="cls-5"
      x="187.75"
