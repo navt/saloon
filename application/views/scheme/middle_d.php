@@ -1,6 +1,6 @@
 <div class="scheme">
 	<?php if (isset($_SESSION['err_msg']) && $_SESSION['err_msg'] !=''):?>
-		<div class="msg">
+		<div class="red">
 			<?php echo $_SESSION['err_msg']; deleteMsg(); ?>
 		</div>
 	<?php endif; ?>
@@ -10,7 +10,8 @@
 			$dp = $_SESSION['datepicker'];
 		} else $dp = '';
 		?>
-		<input type="text" id="datepicker" name="datepicker" value="<?php echo $dp; ?>">
+		<input type="text" id="datepicker" name="datepicker" value="<?php echo $dp; ?>" >
+
 		<input type="hidden" name="q" value="time">
 		<button class="button dtp-button">Зафиксировать время</button>
 	</form>

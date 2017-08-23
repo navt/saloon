@@ -5,7 +5,8 @@ class Scheme extends CI_Controller {
 
 	public $css_files = [
 		'assets/app-css/jquery-ui.min.css',
-		'assets/app-css/jquery-ui-timepicker-addon.css' ];
+		'assets/app-css/jquery-ui-timepicker-addon.css',
+		'assets/app-css/style.css' ];
 	public $js_files = [
 		'assets/app-js/jquery-1.12.4.min.js',
 		'assets/app-js/jquery-ui.min.js',
@@ -48,7 +49,7 @@ class Scheme extends CI_Controller {
 		$data['js_files'] = $this->js_files;
 
 		$baseDir = dirname(dirname(dirname(__FILE__))).D_S;
-		$xml = simplexml_load_file($baseDir.'assets'.D_S.'app-images'.D_S.'scheme-base.svg');
+		$xml = simplexml_load_file($baseDir.'assets'.D_S.'app-images'.D_S.$this->config->item('scheme'));
 
 		$queryRes = $this->scheme_model->bookedOnDate();
 
@@ -81,17 +82,39 @@ class Scheme extends CI_Controller {
 		$table = $this->input->get('q');
 		// если столика нет в списке - досвидос
 		if (!in_array($table, $this->config->item('tables'))) {
-			$_SESSION['err_msg'] = "Нет столика/объекта {$table}.";
+			$_SESSION['err_msg'] = "Нет столика/объекта {$table}. ".__METHOD__;
 			redirect('/scheme/display/');
 		}
 
 		$queryRes = $this->scheme_model->bookedOnDate();
-		if ($queryRes === false) {       // если нет занятых столиков
-			// показываем форму заказа
-		} else {                         // если какие-то столики заняты
-			// провееряем есть ли столик среди заказанных, есть - досвидос,
-			// нет - показываем форму заказа
+		// если какие-то столики заняты
+		if ($queryRes != false)  {
+			// провееряем есть ли столик среди заказанных, есть - досвидос
+			$work = array();
+			foreach ($queryRes as $item) {
+				$work[] = $item['num_table'];
+			}
+			if (in_array($table, $work)) {
+				$_SESSION['err_msg'] = "Cтолик/объект {$table} уже занят. ".__METHOD__;
+				redirect('/scheme/display/');
+			}
 		}
+		// устанавливаем #столика и количество обращений к заключительной форме ввода
+		$_SESSION['table'] = $table;
+		$_SESSION['fail'] = 0;
+		// показываем форму заказа
+		$this->load->view('scheme/order_form');
+	}
+
+	public function reorder()
+	{
+		$qErrors = 3;               // Максимально возможное количество неправильно
+		                            // заполненых форм
+		if ($_SESSION['fail'] > $qErrors) {
+			$_SESSION = null;
+			exit("Вы ошиблись в заполнении формы {$qErrors} раза. Если вы не робот, начните заново.");
+		}
+		$this->load->view('scheme/order_form');
 	}
 
 	// проверка попадает ли время в разрешённый для заказа диапазон
@@ -115,16 +138,40 @@ class Scheme extends CI_Controller {
 			} else {
 				$_SESSION['err_msg'] = 'Заказ столиков предусмотрен с '.
 				$this->config->item('start_time').' до '.$this->config->item('finish_time').
-				'. Пожалуйста, пересмотрите время Вашего визита.';
+				'. Пожалуйста, пересмотрите время Вашего визита. '.__METHOD__;
 				redirect('/scheme/');
 			}
 		} else {
-			$_SESSION['err_msg'] = 'Пожалуйста, выберите время Вашего визита.';
+			$_SESSION['err_msg'] = 'Пожалуйста, выберите время Вашего визита. '.__METHOD__;
 			redirect('/scheme/');
 		}
 
 	}
 
+	public function closeOrder()
+	{
+		$get =[];
+		$get = $this->input->get(null, true);
+		$phone =filter_var($get['client_phone'], FILTER_SANITIZE_NUMBER_INT);
+		if ($phone === false || mb_strlen($phone) < 6 || mb_strlen($phone) > 16) {
+			$_SESSION['err_msg'] = 'Что-то не так с номером телефона. '.__METHOD__;
+			$_SESSION['fail'] = $_SESSION['fail'] + 1;
+			redirect('/scheme/reorder');
+		}
+
+		$filter ='~^[а-яА-ЯёЁ\s-]+$~u';
+		$flag = filter_var($get['client_name'], FILTER_VALIDATE_REGEXP, ['options'=>['regexp'=>$filter]]);
+		if ($flag === false) {
+			$_SESSION['err_msg'] = 'Имя должно быть на кириллице. '.__METHOD__;
+			$_SESSION['fail'] = $_SESSION['fail'] + 1;
+			redirect('/scheme/reorder');
+		} else $name = $get['client_name'];
+
+		$replay = $this->scheme_model->addBooked($phone, $name);
+		if ($replay) {
+			redirect('/scheme/display/');
+		}
+	}
 	public function addBaseUrl()
 	{
 		// css и js для view

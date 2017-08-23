@@ -1,0 +1,87 @@
+.scheme {
+	width: 100%;
+	max-width: 996px;
+	margin: 0 auto; /* центрируем основной контейнер */
+}
+.login_box {
+	width: 22em;
+	margin: 0 auto; /* центрируем основной контейнер */
+}
+.down {
+	height: 3em;
+}
+.button {
+	display: inline-block;
+	vertical-align: baseline;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 16px/100% Arial, Helvetica, sans-serif;
+	margin: .1em;
+	padding: .35em .5em .4em .5em;
+	border-radius: .3em;
+}
+.green {
+	color: #e8f0de;
+	background: #64991e;
+}
+.red {
+	color: #faddde;
+	background: #d81b21;
+	font-size: 1.1em;
+	padding: 1em .5em 1em 1.5em;
+	margin-bottom: 1em;
+}
+.dtp-button {
+	color: #fff;
+	background: #7d7070;
+	font-size: 1.3em;
+}
+#datepicker {
+	padding: .35em .5em .4em .5em;
+	margin: 0 0 .8em;
+	border: solid 1px #dadada;
+	border-radius: .3em;
+	width: 8em;
+	font-size: 1.3em;
+}
+.field {
+	padding: .35em .5em .4em .5em;
+	margin: 0 0 .8em;
+	border: solid 1px #dadada;
+	border-radius: .3em;
+	width: 16em;
+	font-size: 1.3em;
+}
+.title {
+	font-size: 1.3em;
+	color: #7e7070;
+	padding: .35em .5em .4em .5em;
+	margin-bottom: 1em;
+}
+.row {
+    clear: both;
+}
+/*      для админки      */
+.letter {
+	font-family: Arial, sans-serif;
+	font-size: 1.1em;
+}
+.wrap {
+	margin: 1em 1em 0 0em;
+}
+.wrap a {
+    color: #1E35CD;
+    text-decoration: none;
+    font-size: 100%;
+    padding: .3em .3em .3em .3em;
+}
+.wrap a:hover	{
+	text-decoration: none;
+	color: #fff;
+	background: #002cdb;
+}
+.step {
+	height:1em;
+}

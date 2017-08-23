@@ -1,6 +1,6 @@
 <div class="scheme">
 	<?php if (isset($_SESSION['err_msg']) && $_SESSION['err_msg'] !=''):?>
-		<div class="msg">
+		<div class="red">
 			<?php echo $_SESSION['err_msg']; deleteMsg(); ?>
 		</div>
 	<?php endif; ?>

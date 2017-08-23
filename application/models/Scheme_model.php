@@ -31,4 +31,17 @@ class Scheme_model extends CI_Model
 		} else $queryRes = false;
 		return $queryRes;
 	}
+
+	// INSERT
+	public function addBooked($phone, $name)
+	{
+		// имя таблицы
+		$t = $this->config->item('t_prefix').'orders';
+
+		$q = "INSERT INTO `{$t}`
+	        (order_date,num_table,client_name,client_phone)
+	        VALUES ('{$_SESSION['order_date']}','{$_SESSION['table']}','{$name}','{$phone}')";
+        $reply = $this->db->query($q);
+        return $reply;
+	}
 }
