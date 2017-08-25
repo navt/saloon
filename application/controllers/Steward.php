@@ -13,7 +13,7 @@ class Steward extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('steward_model');
 		$this->load->helper('url');
-		$this->load->helper('steward');
+		$this->load->helper('app');
 	}
 
     public function index()

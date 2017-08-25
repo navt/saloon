@@ -20,7 +20,7 @@ class Scheme extends CI_Controller {
 		$this->load->database();
 		$this->load->model('scheme_model');
 		$this->load->helper('url');
-		$this->load->helper('scheme');
+		$this->load->helper('app');
 	}
 	public function index()
 	{
@@ -35,7 +35,7 @@ class Scheme extends CI_Controller {
 			$this->load->view('scheme/ground');
 		}
 		if (isset($_SESSION['order_date'])) {
-			redirect('/scheme/display/');
+			toAddress('/scheme/display/');
 		}
 	}
 
@@ -83,7 +83,7 @@ class Scheme extends CI_Controller {
 		// если столика нет в списке - досвидос
 		if (!in_array($table, $this->config->item('tables'))) {
 			$_SESSION['err_msg'] = "Нет столика/объекта {$table}. ".__METHOD__;
-			redirect('/scheme/display/');
+			toAddress('/scheme/display/');
 		}
 
 		$queryRes = $this->scheme_model->bookedOnDate();
@@ -96,7 +96,7 @@ class Scheme extends CI_Controller {
 			}
 			if (in_array($table, $work)) {
 				$_SESSION['err_msg'] = "Cтолик/объект {$table} уже занят. ".__METHOD__;
-				redirect('/scheme/display/');
+				toAddress('/scheme/display/');
 			}
 		}
 		// устанавливаем #столика и количество обращений к заключительной форме ввода
@@ -134,16 +134,16 @@ class Scheme extends CI_Controller {
 			if ($h >= $this->config->item('start_time') && $h <= $this->config->item('finish_time')) {
 				$_SESSION['order_date'] = toDateTime($get['datepicker']);
 				$_SESSION['datepicker'] = $get['datepicker'];
-				redirect('/scheme/display/');
+				toAddress('/scheme/display/');
 			} else {
 				$_SESSION['err_msg'] = 'Заказ столиков предусмотрен с '.
 				$this->config->item('start_time').' до '.$this->config->item('finish_time').
 				'. Пожалуйста, пересмотрите время Вашего визита. '.__METHOD__;
-				redirect('/scheme/');
+				toAddress('/scheme/');
 			}
 		} else {
 			$_SESSION['err_msg'] = 'Пожалуйста, выберите время Вашего визита. '.__METHOD__;
-			redirect('/scheme/');
+			toAddress('/scheme/');
 		}
 
 	}
@@ -152,24 +152,25 @@ class Scheme extends CI_Controller {
 	{
 		$get =[];
 		$get = $this->input->get(null, true);
+		// в поле телефон попадут только цифры, - и +
 		$phone =filter_var($get['client_phone'], FILTER_SANITIZE_NUMBER_INT);
 		if ($phone === false || mb_strlen($phone) < 6 || mb_strlen($phone) > 16) {
 			$_SESSION['err_msg'] = 'Что-то не так с номером телефона. '.__METHOD__;
 			$_SESSION['fail'] = $_SESSION['fail'] + 1;
-			redirect('/scheme/reorder');
+			toAddress('/scheme/reorder');
 		}
-
+		// в поле имя попадут только имена на кириллице, допустим пробел и -
 		$filter ='~^[а-яА-ЯёЁ\s-]+$~u';
 		$flag = filter_var($get['client_name'], FILTER_VALIDATE_REGEXP, ['options'=>['regexp'=>$filter]]);
 		if ($flag === false) {
 			$_SESSION['err_msg'] = 'Имя должно быть на кириллице. '.__METHOD__;
 			$_SESSION['fail'] = $_SESSION['fail'] + 1;
-			redirect('/scheme/reorder');
+			toAddress('/scheme/reorder');
 		} else $name = $get['client_name'];
 
 		$replay = $this->scheme_model->addBooked($phone, $name);
 		if ($replay) {
-			redirect('/scheme/display/');
+			toAddress('/scheme/display/');
 		}
 	}
 	public function addBaseUrl()
