@@ -26,12 +26,12 @@
 	?>
 	<form method="GET" action="<?php echo base_url('steward/index');?>">
 		<label for="username">Пользователь</label><br>
-		<input class="field" type="text" name="userName"  value="<?php echo $userName; ?>"  placeholder="Ваш e-mail" >
+		<input class="field" type="email" name="userName"  value="<?php echo $userName; ?>"  placeholder="Ваш e-mail" >
 		<br>
 		<label for="password">Пароль</label><br>
 		<input class="field" type="password" name="passWord"  value="<?php echo $passWord; ?>" placeholder="Пароль" >
 		<br>
-		<button class="button dtp-button" name="button" value="Войти">Войти</button>
+		<button class="button dtp-button" name="button" value="Войти">&nbsp;Войти&nbsp;</button>
 	</form>
 
 </div>

@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Хелперы приложения сведены в один файл, чтобы избежать дублирования
+ * Немногочисленные хелперы приложения сведены в один файл, чтобы избежать
+ * дублирования
  */
 
 if ( ! function_exists('deleteMsg')) {
@@ -19,6 +20,7 @@ if ( ! function_exists('deleteMsg')) {
 if ( ! function_exists('toDateTime')) {
 
 	//  Функция преобразует время из "русского"" формата в формат DATETIME
+	//  для работы с БД
     function toDateTime($dateTime)
     {
         $l = mb_strlen($dateTime);
@@ -68,7 +70,7 @@ if ( ! function_exists('emailValidate')) {
             if (!$dns || ($dns && checkdnsrr($domain, "MX") && checkdnsrr($domain, "A"))) {
                 $error = false;
             } else {
-                $error = 'dns';
+                $error = 'dns resource record';
             }
         } else {
             $error = 'format';
@@ -78,6 +80,12 @@ if ( ! function_exists('emailValidate')) {
 }
 
 if ( ! function_exists('genHash')) {
+	/**
+	 * genHash генерация хеша из строки и соли по алгоритму md5
+	 * @param  [string] $userName соль для md5
+	 * @param  [string] $passWord строка, для которой нужен хеш
+	 * @return [string]           хеш d5
+	 */
 	function genHash($userName, $passWord)
 	{
 		// md5
@@ -89,7 +97,7 @@ if ( ! function_exists('genHash')) {
 if ( ! function_exists('toAddress'))
 {
 	/**
-	 * Header Redirect, изменённый под мои нужды
+	 * штатный Header Redirect, изменённый под мои нужды
 	 *
 	 * Header redirect in two flavors
 	 * For very fine grained control over headers, you could use the Output

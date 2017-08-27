@@ -31,7 +31,7 @@
     <rect inkscape:label="#rect4453" id="403" height="54" width="22.5" y="15.5" x="127.25" class="green"/>
   </a>
   <a id="a4433" xlink:href="http://saloon/scheme/order?q=404" target="_parent">
-    <rect inkscape:label="#rect4455" id="404" height="54" width="22.5" y="15.5" x="190.25" class="ruddy"/>
+    <rect inkscape:label="#rect4455" id="404" height="54" width="22.5" y="15.5" x="190.25" class="green"/>
   </a>
   <a id="a4436" xlink:href="http://saloon/scheme/order?q=405" target="_parent">
     <rect inkscape:label="#rect4457" id="405" height="54" width="22.5" y="15.5" x="251.25" class="green"/>
@@ -111,7 +111,7 @@
     <tspan x="67.87" y="0" id="tspan4577">Л</tspan>
   </text>
   <a id="a4064" xlink:href="http://saloon/scheme/order?q=103" target="_parent">
-    <rect inkscape:label="#rect4581" id="103" height="24.67" width="47.33" y="369.67" x="45.75" class="ruddy"/>
+    <rect inkscape:label="#rect4581" id="103" height="24.67" width="47.33" y="369.67" x="45.75" class="green"/>
   </a>
   <rect class="cls-5" x="46.42" y="359" width="22" height="10" id="rect4583"/>
   <rect class="cls-5" x="68.75" y="359" width="22" height="10" id="rect4585"/>

@@ -19,7 +19,7 @@
 	text-decoration: none;
 	font: 16px/100% Arial, Helvetica, sans-serif;
 	margin: .1em;
-	padding: .35em .5em .4em .5em;
+	padding: .4em .5em .4em .5em;
 	border-radius: .3em;
 }
 .green {
@@ -36,6 +36,7 @@
 .dtp-button {
 	color: #fff;
 	background: #7d7070;
+	border: solid #5d5353 .08em;
 	font-size: 1.3em;
 }
 #datepicker {
@@ -83,5 +84,19 @@
 	background: #002cdb;
 }
 .step {
-	height:1em;
+	height:2em;
+}
+.be-field {
+	padding: .35em .5em .4em .5em;
+	margin: 0 0 .8em;
+	border: solid 1px #dadada;
+	border-radius: .3em;
+	width: 20em;
+	font-size: 1.1em;
+}
+.be-button {
+	color: #fff;
+	background: #7d7070;
+	border: solid #5d5353 .08em;
+	font-size: 1.1em;
 }

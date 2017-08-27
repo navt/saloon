@@ -26,11 +26,11 @@
 	?>
     <div>
 		<form method="GET" action="<?php echo base_url('steward/generate');?>">
-		<input class="field" type="text" name="userName"  value="<?php echo $userName; ?>"  placeholder="E-mail пользователя" >
+		<input class="be-field" type="text" name="userName"  value="<?php echo $userName; ?>"  placeholder="E-mail пользователя" >
 		<br>
-		<input class="field" type="password" name="passWord"  value="<?php echo $passWord; ?>" placeholder="Желаемый пароль" >
+		<input class="be-field" type="password" name="passWord"  value="<?php echo $passWord; ?>" placeholder="Желаемый пароль" >
 		<br>
-		<button class="button dtp-button" name="button" value="Генерировать">Генерировать</button>
+		<button class="button be-button" name="button" value="Генерировать">Генерировать</button>
 	</form>
 
     </div>
