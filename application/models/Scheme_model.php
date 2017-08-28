@@ -32,6 +32,29 @@ class Scheme_model extends CI_Model
 		return $queryRes;
 	}
 
+	public function loadTables()
+	{
+		// имя таблицы
+		$t = $this->config->item('t_prefix').'tables';
+		$q = "SELECT `tbl_number`,`tbl_seats` FROM `{$t}` ";
+		$flag = true;
+
+		$query = $this->db->query($q);
+		if ($query->num_rows() > 0){
+			$queryRes = array();
+			$queryRes = $query->result_array();
+		} else $flag = false;
+
+		if ($queryRes !== false) {
+			$tbls = array();
+			foreach ($queryRes as $item) {
+				$tbls[$item['tbl_number']] = $item['tbl_seats'];
+			}
+			$this->config->set_item('tables', $tbls);
+		}
+		return $flag;
+	}
+
 	// INSERT
 	public function addBooked($phone, $name)
 	{

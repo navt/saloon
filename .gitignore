@@ -1,2 +1,3 @@
 /application/config/production/*
 /system/*
+/assets/uploads/files/saloon.sql

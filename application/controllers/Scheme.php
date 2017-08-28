@@ -80,8 +80,14 @@ class Scheme extends CI_Controller {
 	public function order()
 	{
 		$table = $this->input->get('q');
+		// таблицу со столиками загружаем в config в виде массива
+		$this->scheme_model->loadTables();
 		// если столика нет в списке - досвидос
-		if (!in_array($table, $this->config->item('tables'))) {
+		$work = array();
+		foreach ($this->config->item('tables') as $key => $value) {
+			$work[] = $key;
+		}
+		if (!in_array($table, $work)) {
 			$_SESSION['err_msg'] = "Нет столика/объекта {$table}. ".__METHOD__;
 			toAddress('/scheme/display/');
 		}
@@ -182,5 +188,12 @@ class Scheme extends CI_Controller {
 		for ($i=0; $i < count($this->js_files); $i++) {
 			$this->js_files[$i] = base_url($this->js_files[$i]);
 		}
+	}
+	public function ex()
+	{
+		$this->scheme_model->loadTables();
+		$tbls = array();
+		$tbls = $this->config->item('tables');
+		var_dump($tbls);
 	}
 }

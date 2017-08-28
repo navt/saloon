@@ -10,6 +10,7 @@
 <body>
 	<div class='wrap letter'>
 		| <a href='<?php echo site_url('steward/orders')?>'>Забронированные столики</a> |
+		<a href='<?php echo site_url('steward/tables')?>'>Столики</a> |
 		<a href='<?php echo site_url('steward/managers')?>'>Управляющие</a> |
 		<a href='<?php echo site_url('steward/generate')?>'>Генератор паролей</a> |
 		<a href='<?php echo site_url('steward/deleteAuth')?>'>Выход</a> |

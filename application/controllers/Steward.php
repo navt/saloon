@@ -119,6 +119,20 @@ class Steward extends CI_Controller {
 		$output = $this->grocery_crud->render();
 		$this->load->view('steward/crud_view.php',$output);
 	}
+	public function tables()
+	{
+		$this->checkAuth();
+		$this->grocery_crud = new grocery_CRUD();
+		$this->grocery_crud->set_subject('&nbsp;&nbsp;&nbsp;Столики/объекты');
+		$this->grocery_crud->set_language("russian");
+
+		$this->grocery_crud->display_as('tbl_number','Номер столика');
+		$this->grocery_crud->display_as('tbl_seats','Количество мест');
+
+		$this->grocery_crud->set_table($this->fullTabName('tables'));
+		$output = $this->grocery_crud->render();
+		$this->load->view('steward/crud_view.php',$output);
+	}
 
 	public function fullTabName($name='')
 	{
