@@ -53,6 +53,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
+
 switch ($_SERVER['SERVER_ADDR']) {
 	case '127.0.0.1':
 		$env = 'development';
@@ -61,6 +62,7 @@ switch ($_SERVER['SERVER_ADDR']) {
 		$env = 'production';
 		break;
 }
+
 define('ENVIRONMENT',$env);
 
 /*

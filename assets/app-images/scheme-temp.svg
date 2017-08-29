@@ -40,7 +40,7 @@
     <rect inkscape:label="#rect4459" id="406" height="44" width="22.5" y="15.5" x="314.75" class="green"/>
   </a>
   <a id="a4139" xlink:href="http://saloon/scheme/order?q=409" target="_parent">
-    <rect inkscape:label="#rect4461" id="409" height="44" width="22.5" y="15.5" x="381.25" class="green"/>
+    <rect inkscape:label="#rect4461" id="409" height="44" width="22.5" y="15.5" x="381.25" class="ruddy"/>
   </a>
   <rect class="cls-5" x="111.08" y="21" width="13.5" height="11.5" id="rect4463"/>
   <rect class="cls-5" x="111.08" y="38.5" width="13.5" height="11.5" id="rect4465"/>
@@ -284,7 +284,7 @@
     <tspan x="68.82" y="0" id="tspan4841">С</tspan>
   </text>
   <a id="a4058" xlink:href="http://saloon/scheme/order?q=101" target="_parent">
-    <rect inkscape:label="#rect4845" id="101" height="75.67" width="27.33" y="487.33" x="47.75" class="ruddy"/>
+    <rect inkscape:label="#rect4845" id="101" height="75.67" width="27.33" y="487.33" x="47.75" class="green"/>
   </a>
   <rect class="cls-5" x="36.92" y="475.33" width="46.5" height="10" id="rect4847"/>
   <rect class="cls-5" x="36.92" y="563.33" width="46.5" height="10" id="rect4849"/>
