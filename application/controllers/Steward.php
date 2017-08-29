@@ -95,6 +95,7 @@ class Steward extends CI_Controller {
 
 		$this->grocery_crud->display_as('order_date','Дата и время');
 		$this->grocery_crud->display_as('num_table','Номер столика');
+		$this->grocery_crud->display_as('qty_seats','Мест в заказе');
 		$this->grocery_crud->display_as('client_name','Имя клиента');
 		$this->grocery_crud->display_as('client_phone','Телефон');
 		$this->grocery_crud->display_as('order_note','Примечание');

@@ -80,14 +80,15 @@ class Scheme extends CI_Controller {
 	public function order()
 	{
 		$table = $this->input->get('q');
-		// таблицу со столиками загружаем в config в виде массива
-		$this->scheme_model->loadTables();
-		// если столика нет в списке - досвидос
-		$work = array();
-		foreach ($this->config->item('tables') as $key => $value) {
-			$work[] = $key;
+		if (!is_numeric($table)) {
+			$_SESSION['err_msg'] = "Неверный формат запроса. ".__METHOD__;
+			toAddress('/scheme/display/');
 		}
-		if (!in_array($table, $work)) {
+
+		// смотрим, есть ли такой столик в таблице tables
+		$tbl = $this->scheme_model->getTable($table);
+		// если столика нет в таблице - досвидос
+		if ($table != $tbl[0]) {
 			$_SESSION['err_msg'] = "Нет столика/объекта {$table}. ".__METHOD__;
 			toAddress('/scheme/display/');
 		}
@@ -105,8 +106,10 @@ class Scheme extends CI_Controller {
 				toAddress('/scheme/display/');
 			}
 		}
-		// устанавливаем #столика и количество обращений к заключительной форме ввода
+		// устанавливаем #столика, количество заказанных мест и количество обращений
+		// к заключительной форме ввода
 		$_SESSION['table'] = $table;
+		$_SESSION['seats'] = $tbl[1];
 		$_SESSION['fail'] = 0;
 		// показываем форму заказа
 		$this->load->view('scheme/order_form');
@@ -158,6 +161,7 @@ class Scheme extends CI_Controller {
 	{
 		$get =[];
 		$get = $this->input->get(null, true);
+
 		// в поле телефон попадут только цифры, - и +
 		$phone =filter_var($get['client_phone'], FILTER_SANITIZE_NUMBER_INT);
 		if ($phone === false || mb_strlen($phone) < 6 || mb_strlen($phone) > 16) {
@@ -165,6 +169,7 @@ class Scheme extends CI_Controller {
 			$_SESSION['fail'] = $_SESSION['fail'] + 1;
 			toAddress('/scheme/reorder');
 		}
+
 		// в поле имя попадут только имена на кириллице, допустим пробел и -
 		$filter ='~^[а-яА-ЯёЁ\s-]+$~u';
 		$flag = filter_var($get['client_name'], FILTER_VALIDATE_REGEXP, ['options'=>['regexp'=>$filter]]);
@@ -174,7 +179,15 @@ class Scheme extends CI_Controller {
 			toAddress('/scheme/reorder');
 		} else $name = $get['client_name'];
 
-		$replay = $this->scheme_model->addBooked($phone, $name);
+		// в поле Количество мест должна быть целая цифра
+		$qty = filter_var($get['qty_seats'], FILTER_SANITIZE_NUMBER_INT);
+		if ($qty === false || $qty > $_SESSION['seats']) {
+			$_SESSION['err_msg'] = 'Поле Количество мест не прошло валидацию. '.__METHOD__;
+			$_SESSION['fail'] = $_SESSION['fail'] + 1;
+			toAddress('/scheme/reorder');
+		}
+		// пишем новую запись в таблицу orders
+		$replay = $this->scheme_model->addBooked($phone, $name, $qty);
 		if ($replay) {
 			toAddress('/scheme/display/');
 		}
@@ -191,9 +204,11 @@ class Scheme extends CI_Controller {
 	}
 	public function ex()
 	{
+		/*
 		$this->scheme_model->loadTables();
 		$tbls = array();
 		$tbls = $this->config->item('tables');
 		var_dump($tbls);
+		*/
 	}
 }

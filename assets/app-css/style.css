@@ -52,8 +52,14 @@
 	margin: 0 0 .8em;
 	border: solid 1px #dadada;
 	border-radius: .3em;
-	width: 16em;
+	/*width: 16em;*/
 	font-size: 1.3em;
+}
+.w-input {
+	width: 16em;
+}
+.w-select {
+	width: 10em;
 }
 .title {
 	font-size: 1.3em;

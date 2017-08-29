@@ -18,9 +18,16 @@
 		<?php echo "Бронирование столика {$_SESSION['table']} на {$_SESSION['datepicker']}."; ?>
 	</div>
 	<form method="GET" action="<?php echo base_url('scheme/closeOrder');?>">
-		<input class="field" type="text" name="client_name" value="" placeholder="Ваше имя" >
+		<input class="field w-input" type="text" name="client_name" value="" placeholder="Ваше имя" >
 		&nbsp;
-		<input class="field" type="text" name="client_phone" value="" placeholder="Телефон" >
+		<input class="field w-select" type="text" name="client_phone" value="" placeholder="Телефон" >
+		&nbsp;
+		<select class="field w-select" name="qty_seats">
+			<option value="0" selected disabled>Количество мест</option>
+			<?php for ($i=1; $i <= $_SESSION['seats'] ; $i++): ?>
+				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+			<?php endfor; ?>
+		</select>
 		&nbsp;
 		<button class="button dtp-button">Отправить</button>
 	</form>

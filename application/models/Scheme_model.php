@@ -32,11 +32,14 @@ class Scheme_model extends CI_Model
 		return $queryRes;
 	}
 
-	public function loadTables()
+	public function getTable($table='')
 	{
+		if ($table === '') {
+			return false;
+		}
 		// имя таблицы
 		$t = $this->config->item('t_prefix').'tables';
-		$q = "SELECT `tbl_number`,`tbl_seats` FROM `{$t}` ";
+		$q = "SELECT `tbl_number`,`tbl_seats` FROM `{$t}` WHERE `tbl_number` = '{$table}' ";
 		$flag = true;
 
 		$query = $this->db->query($q);
@@ -45,25 +48,24 @@ class Scheme_model extends CI_Model
 			$queryRes = $query->result_array();
 		} else $flag = false;
 
-		if ($queryRes !== false) {
-			$tbls = array();
-			foreach ($queryRes as $item) {
-				$tbls[$item['tbl_number']] = $item['tbl_seats'];
-			}
-			$this->config->set_item('tables', $tbls);
+		if ($flag) {
+			$tbl = array();
+			$tbl[0] = $queryRes[0]['tbl_number'];
+			$tbl[1] = $queryRes[0]['tbl_seats'];
+			return $tbl;
 		}
 		return $flag;
 	}
 
 	// INSERT
-	public function addBooked($phone, $name)
+	public function addBooked($phone, $name, $qty)
 	{
 		// имя таблицы
 		$t = $this->config->item('t_prefix').'orders';
 
 		$q = "INSERT INTO `{$t}`
-	        (order_date,num_table,client_name,client_phone)
-	        VALUES ('{$_SESSION['order_date']}','{$_SESSION['table']}','{$name}','{$phone}')";
+	        (order_date,num_table,qty_seats,client_name,client_phone)
+	        VALUES ('{$_SESSION['order_date']}','{$_SESSION['table']}','{$qty}','{$name}','{$phone}')";
         $reply = $this->db->query($q);
         return $reply;
 	}
