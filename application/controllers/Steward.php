@@ -101,6 +101,7 @@ class Steward extends CI_Controller {
 		$this->grocery_crud->display_as('order_note','Примечание');
 
 		$this->grocery_crud->set_table($this->fullTabName('orders'));
+		$this->grocery_crud->set_relation('num_table',$this->fullTabName('tables'),'tbl_number');
 		$output = $this->grocery_crud->render();
 		$this->load->view('steward/crud_view.php',$output);
 
