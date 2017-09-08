@@ -1,0 +1,125 @@
+@import "reset.less";
+@import "app-vars.less";
+
+/* возьмём за отправную единицу измерения размер шрифта для body */
+body {
+	font-size: @b-f-size;
+}
+/* разные буквы */
+.title {
+	font-size: @form-f-size;
+	color: #7e7070;
+	padding: .35em .5em .4em .5em;
+	margin-bottom: 1em;
+}
+/*  буквы для админки      */
+.letter {
+	font-family: Arial, sans-serif;
+	font-size: @error-f-size;
+}
+/* -- основные  блоки -- */
+.scheme {
+	width: 100%;
+	max-width: @w_scheme;
+	/* центрируем основной контейнер */
+	margin: 0 auto;
+}
+.login_box {
+	width: 22em;
+	/* центрируем основной контейнер */
+	margin: 0 auto;
+}
+/* контейнер для админ. части */
+.wrap {
+	width: 98%;
+	margin: 0 auto;
+}
+/* меню для админ. части */
+.func {
+	a {
+	    color: @f-menu-color;
+	    text-decoration: none;
+	    font-size: 100%;
+	    padding: .3em .3em .3em .3em;
+	}
+	a:hover	{
+		text-decoration: none;
+		color: #fff;
+		background: @bg-hover-menu;
+	}
+}
+/* сообщения об ошибках */
+.red {
+	color: @f-error-block;
+	background: @bg-error-block;
+	font-size: @error-f-size;
+	padding: 1em .5em 1em 1.5em;
+	margin-bottom: 1em;
+}
+/* поля ввода */
+#datepicker {
+	padding: .3em .5em .4em .5em;
+	margin: .1em 0 .1em 0;
+	border: solid 1px #dadada;
+	border-radius: .3em;
+	width: 9em;
+	font-size: @form-f-size;
+}
+.field {
+	padding: .3em .5em .4em .5em;
+	margin: .1em 0 .1em 0;
+	border: solid 1px #dadada;
+	border-radius: .3em;
+	font-size: @form-f-size;
+}
+.be-field {
+	padding: .35em .5em .4em .5em;
+	margin: 0 0 .8em;
+	border: solid 1px #dadada;
+	border-radius: .3em;
+	width: 20em;
+	font-size: @error-f-size;
+}
+.w-input {
+	width: 16em;
+}
+.w-select {
+	width: 10em;
+}
+/* кнопки */
+.button {
+	display: inline-block;
+	vertical-align: baseline;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 16px/100% Arial, Helvetica, sans-serif;
+	padding: .4em .5em .57em .5em;
+	border-radius: .3em;
+}
+.dtp-button {
+	color: #fff;
+	background: @bg-button;
+	border: solid #5d5353 1px;
+	font-size: @form-f-size;
+}
+.be-button {
+	color: #fff;
+	background: @bg-button;
+	border: solid #5d5353 .08em;
+	font-size: @error-f-size;
+}
+/* вспомогательные элементы */
+.row {
+    clear: both;
+}
+.step {
+	height:2em;
+}
+.down {
+	height: 3em;
+}
+.sch-mrgn {
+	height: .8em;
+}

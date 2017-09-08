@@ -8,7 +8,9 @@
 		href="<?php echo base_url('assets/app-css/style.css'); ?>" />
 </head>
 <body>
-	<div class='wrap letter'>
+	<div class='wrap'>
+	<div class="sch-mrgn"></div>
+	<div class="func letter">
 		| <a href='<?php echo site_url('steward/orders')?>'>Забронированные столики</a> |
 		<a href='<?php echo site_url('steward/tables')?>'>Столики</a> |
 		<a href='<?php echo site_url('steward/managers')?>'>Управляющие</a> |
@@ -46,6 +48,6 @@
 			<?php echo $_SESSION['hash']; $_SESSION['hash'] = null; ?>
 		</div>
 	<?php endif;?>
-
+	</div>
 </body>
 </html>

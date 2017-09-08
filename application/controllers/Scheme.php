@@ -80,22 +80,26 @@ class Scheme extends CI_Controller {
 	public function order()
 	{
 		$table = $this->input->get('q');
-		if (!is_numeric($table)) {
-			$_SESSION['err_msg'] = "Неверный формат запроса. ".__METHOD__;
+
+		if (!is_numeric($table) || mb_strlen($table)!==3) {
+			$_SESSION['err_msg'] = "Неверный формат запроса к методу ".__METHOD__;
 			toAddress('/scheme/display/');
 		}
-
+		// смотрим, зафиксировано ли время заказа
+		if (!isset($_SESSION['order_date'])) {
+			show_error("Попытка некорректного обращения к методу ".__METHOD__, 422, 'Ошибка со стороны клиента');
+		}
 		// смотрим, есть ли такой столик в таблице tables
 		$tbl = $this->scheme_model->getTable($table);
 		// если столика нет в таблице - досвидос
-		if ($table != $tbl[0]) {
+		if ($table !== $tbl[0]) {
 			$_SESSION['err_msg'] = "Нет столика/объекта {$table}. ".__METHOD__;
 			toAddress('/scheme/display/');
 		}
 
 		$queryRes = $this->scheme_model->bookedOnDate();
 		// если какие-то столики заняты
-		if ($queryRes != false)  {
+		if ($queryRes !== false)  {
 			// провееряем есть ли столик среди заказанных, есть - досвидос
 			$work = array();
 			foreach ($queryRes as $item) {
@@ -109,19 +113,19 @@ class Scheme extends CI_Controller {
 		// устанавливаем #столика, количество заказанных мест и количество обращений
 		// к заключительной форме ввода
 		$_SESSION['table'] = $table;
-		$_SESSION['seats'] = $tbl[1];
+		$_SESSION['seats'] =  (integer)$tbl[1];
 		$_SESSION['fail'] = 0;
+
 		// показываем форму заказа
 		$this->load->view('scheme/order_form');
 	}
 
 	public function reorder()
 	{
-		$qErrors = 3;               // Максимально возможное количество неправильно
-		                            // заполненых форм
-		if ($_SESSION['fail'] > $qErrors) {
+		// Проверим на Максимально возможное количество неправильно заполненых форм
+		if ($_SESSION['fail'] >= $this->config->item('qty_try')) {
 			$_SESSION = null;
-			exit("Вы ошиблись в заполнении формы {$qErrors} раза. Если вы не робот, начните заново.");
+			show_error("Вы ошиблись в заполнении формы {$this->config->item('qty_try')} раза. Если вы не робот, извините.", 422, 'Ошибка со стороны клиента');
 		}
 		$this->load->view('scheme/order_form');
 	}
@@ -138,7 +142,7 @@ class Scheme extends CI_Controller {
 			$_SESSION['datepicker'] = null;
 		}
 
-		if ($get['q'] == 'time' && mb_strlen($get['datepicker']) == 16) {
+		if ($get['q'] === 'time' && mb_strlen($get['datepicker']) === 16) {
 			$h = mb_substr($get['datepicker'], 11, 5);
 			if ($h >= $this->config->item('start_time') && $h <= $this->config->item('finish_time')) {
 				$_SESSION['order_date'] = toDateTime($get['datepicker']);
@@ -162,37 +166,30 @@ class Scheme extends CI_Controller {
 		$get =[];
 		$get = $this->input->get(null, true);
 
-		// в поле телефон попадут только цифры, - и +
-		$phone =filter_var($get['client_phone'], FILTER_SANITIZE_NUMBER_INT);
-		if ($phone === false || mb_strlen($phone) < 6 || mb_strlen($phone) > 16) {
-			$_SESSION['err_msg'] = 'Что-то не так с номером телефона. '.__METHOD__;
-			$_SESSION['fail'] = $_SESSION['fail'] + 1;
-			toAddress('/scheme/reorder');
+		// отсекаем ботов, которые напрямую хотят отправить нечто через форму заказа
+		if (!isset($_SESSION['order_date']) || $_SESSION['order_date'] === null) {
+			show_error('Попытка некорректного обращения к методу '.__METHOD__, 422, 'Ошибка со стороны клиента');
 		}
+		// запоминаем введённые в форму поля
+		$_SESSION['form'] = $get;
+		// отправляем масссив из GET на валидацию
+		$get = $this->scheme_model->validFields($get);
 
-		// в поле имя попадут только имена на кириллице, допустим пробел и -
-		$filter ='~^[а-яА-ЯёЁ\s-]+$~u';
-		$flag = filter_var($get['client_name'], FILTER_VALIDATE_REGEXP, ['options'=>['regexp'=>$filter]]);
-		if ($flag === false) {
-			$_SESSION['err_msg'] = 'Имя должно быть на кириллице. '.__METHOD__;
-			$_SESSION['fail'] = $_SESSION['fail'] + 1;
-			toAddress('/scheme/reorder');
-		} else $name = $get['client_name'];
-
-		// в поле Количество мест должна быть целая цифра
-		$qty = filter_var($get['qty_seats'], FILTER_SANITIZE_NUMBER_INT);
-		if ($qty === false || $qty > $_SESSION['seats']) {
-			$_SESSION['err_msg'] = 'Поле Количество мест не прошло валидацию. '.__METHOD__;
-			$_SESSION['fail'] = $_SESSION['fail'] + 1;
-			toAddress('/scheme/reorder');
-		}
-		// пишем новую запись в таблицу orders
-		$replay = $this->scheme_model->addBooked($phone, $name, $qty);
+		// если $_GET прошёл фильтры то, пишем новую запись в таблицу orders
+		$replay = $this->scheme_model->addBooked($get);
 		if ($replay) {
+			// теперь помнить поля формы больше не нужно
+			$_SESSION['form'] = null;
+			// отправляем e-mail на адрес менеджера
+			$flag = $this->scheme_model->notice($get);
+			if ($flag === false) {
+				show_error('Уведомление менеджеру ресторана не отправлено. Свяжитесь с ним по телефону '.__METHOD__, 501, 'Ошибка со стороны сервера');
+			}
+			// переадресация на показ схемы
 			toAddress('/scheme/display/');
 		}
 	}
-	public function addBaseUrl()
+	private function addBaseUrl()
 	{
 		// css и js для view
 		for ($i=0; $i < count($this->css_files); $i++) {
@@ -204,11 +201,6 @@ class Scheme extends CI_Controller {
 	}
 	public function ex()
 	{
-		/*
-		$this->scheme_model->loadTables();
-		$tbls = array();
-		$tbls = $this->config->item('tables');
-		var_dump($tbls);
-		*/
+		# code ...
 	}
 }

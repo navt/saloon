@@ -30,7 +30,7 @@
 		<br>
 		<label for="password">Пароль</label><br>
 		<input class="field w-input" type="password" name="passWord"  value="<?php echo $passWord; ?>" placeholder="Пароль" >
-		<br>
+		<div class="sch-mrgn"></div>
 		<button class="button dtp-button" name="button" value="Войти">&nbsp;Войти&nbsp;</button>
 	</form>
 

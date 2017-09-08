@@ -20,3 +20,11 @@ $config['tables'] = array(
 */
 // исходный файл схемы
 $config['scheme'] = 'scheme-base.svg';
+// Максимально возможное количество неправильно заполненых форм
+$config['qty_try'] = 3;
+// максимальная длина сообщения от клиента
+$config['message_length'] = 500;
+// e-mail менеджера / куда будет отправлено письмо
+$config['manager_email'] = 'w-navt@yandex.ru';
+// e-mail сайта / откуда письмо
+$config['site_email'] = 'vt@yandex.ru';
