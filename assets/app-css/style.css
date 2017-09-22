@@ -1,1 +1,426 @@
-abbr,address,article,aside,audio,b,blockquote,body,body div,caption,cite,code,dd,del,details,dfn,dl,dt,em,fieldset,figure,footer,form,h1,h2,h3,h4,h5,h6,header,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font-weight:400;vertical-align:baseline;background:0 0}article,aside,details,figure,footer,header,nav,section,summary{display:block}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}embed,img,object{max-width:100%}html{overflow-y:scroll}ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:0 0}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help}table{border-collapse:collapse;border-spacing:0}th{font-weight:700;vertical-align:bottom}td{font-weight:400}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}pre{white-space:pre;white-space:pre-wrap;white-space:pre-line;word-wrap:break-word}input[type=radio]{vertical-align:text-bottom}input[type=checkbox]{vertical-align:bottom}.ie7 input[type=checkbox]{vertical-align:baseline}.ie6 input{vertical-align:text-bottom}input,select,textarea{font:99% sans-serif}table{font:100%}small{font-size:85%}strong{font-weight:700}td,td img{vertical-align:top}sub,sup{font-size:75%;line-height:0;position:relative}sup{top:-.5em}sub{bottom:-.25em}code,kbd,pre,samp{font-family:monospace,sans-serif}.clickable,button,input[type=button],input[type=file],input[type=submit],label{cursor:pointer}button,input,select,textarea{margin:0}button,input[type=button]{width:auto;overflow:visible}.ie7 img{-ms-interpolation-mode:bicubic}.clearfix:after,.clearfix:before{content:"\0020";display:block;height:0;overflow:hidden}.clearfix:after{clear:both}.clearfix{zoom:1}body{font-size:16px}.title{font-size:1.3em;color:#7e7070;padding:.35em .5em .4em;margin-bottom:1em}.letter{font-family:Arial,sans-serif;font-size:1.1em}.scheme{width:100%;max-width:62.25em;margin:0 auto}.login_box{width:22em;margin:0 auto}.wrap{width:98%;margin:0 auto}.func a{color:#1e35cd;text-decoration:none;font-size:100%;padding:.3em}.func a:hover{text-decoration:none;color:#fff;background:#002cdb}.red{color:#faddde;background:#d81b21;font-size:1.1em;padding:1em .5em 1em 1.5em;margin-bottom:1em}#datepicker{padding:.3em .5em .4em;margin:.1em 0;border:1px solid #dadada;border-radius:.3em;width:9em;font-size:1.3em}.field{padding:.3em .5em .4em;margin:.1em 0;border:1px solid #dadada;border-radius:.3em;font-size:1.3em}.be-field{padding:.35em .5em .4em;margin:0 0 .8em;border:1px solid #dadada;border-radius:.3em;width:20em;font-size:1.1em}.w-input{width:16em}.w-select{width:10em}.button{display:inline-block;vertical-align:baseline;outline:0;cursor:pointer;text-align:center;text-decoration:none;font:16px/100% Arial,Helvetica,sans-serif;padding:.4em .5em .57em;border-radius:.3em}.dtp-button{color:#fff;background:#7d7070;border:1px solid #5d5353;font-size:1.3em}.be-button{color:#fff;background:#7d7070;border:.08em solid #5d5353;font-size:1.1em}.row{clear:both}.step{height:2em}.down{height:3em}.sch-mrgn{height:.8em}
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
+  display: block;
+}
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+/* Responsive images and other embedded objects
+*/
+img,
+object,
+embed {
+  max-width: 100%;
+}
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+	 In fact, it *will* cause problems with Google Maps' controls at small size.
+	If this is the case for you, try uncommenting the following:
+
+#map img {
+		max-width: none;
+}
+*/
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll;
+}
+/* we use a lot of ULs that aren't bulleted.
+	don't forget to restore the bullets within content. */
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+input,
+select {
+  vertical-align: middle;
+}
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */
+}
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline;
+}
+.ie6 input {
+  vertical-align: text-bottom;
+}
+select,
+input,
+textarea {
+  font: 99% sans-serif;
+}
+table {
+  font-size: inherit;
+  font: 100%;
+}
+small {
+  font-size: 85%;
+}
+strong {
+  font-weight: bold;
+}
+td,
+td img {
+  vertical-align: top;
+}
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* standardize any monospaced elements */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, sans-serif;
+}
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer;
+}
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible;
+}
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+/* let's clear some floats */
+.clearfix:before,
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+/* размер шрифта для body */
+/* ширина блока для схемы */
+/* цвет шрифта меню в админ.части */
+/* цвет для фона для hover меню в админ.части */
+/* вывод сообщения об ошибке */
+/* сообщения для шагов */
+/* размер шрифта для форм */
+/* размер шрифта для ошибок ... */
+/* цвет кнопки */
+/* возьмём за отправную единицу измерения размер шрифта для body */
+body {
+  font-size: 16px;
+}
+/* разные буквы */
+.title {
+  font-size: 1.3em;
+  color: #7e7070;
+  padding: .35em .5em .4em .5em;
+  margin-bottom: 1em;
+}
+/*  буквы для админки      */
+.letter {
+  font-family: Arial, sans-serif;
+  font-size: 1.1em;
+}
+/* -- основные  блоки -- */
+.scheme {
+  width: 100%;
+  max-width: 48em;
+  /* центрируем основной контейнер */
+  margin: 0 auto;
+}
+.login_box {
+  width: 22em;
+  /* центрируем основной контейнер */
+  margin: 0 auto;
+}
+/* контейнер для админ. части */
+.wrap {
+  width: 98%;
+  margin: 0 auto;
+}
+/* меню для админ. части */
+.func a {
+  color: #1e35cd;
+  text-decoration: none;
+  font-size: 100%;
+  padding: .3em .3em .3em .3em;
+}
+.func a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #002cdb;
+}
+/* сообщения об ошибках */
+.red {
+  color: #faddde;
+  background: #f21b1a;
+  font-size: 1.1em;
+  padding: 1em .5em 1em 1.5em;
+  margin-bottom: 1em;
+}
+/* сообщения для шагов */
+.steps {
+  color: #77513d;
+  background: #f6f4e7;
+  font-size: 1.1em;
+  padding: 1em .5em 1em 1.5em;
+  margin-bottom: 1em;
+}
+/* поля ввода */
+#datepicker {
+  padding: .3em .5em .4em .5em;
+  margin: .1em 0 .1em 0;
+  border: solid 1px #dadada;
+  border-radius: .3em;
+  width: 9em;
+  font-size: 1.3em;
+}
+.field {
+  padding: .3em .5em .4em .5em;
+  margin: .1em 0 .1em 0;
+  border: solid 1px #dadada;
+  border-radius: .3em;
+  font-size: 1.3em;
+}
+.be-field {
+  padding: .35em .5em .4em .5em;
+  margin: 0 0 .8em;
+  border: solid 1px #dadada;
+  border-radius: .3em;
+  width: 20em;
+  font-size: 1.1em;
+}
+.w-input {
+  width: 16em;
+}
+.w-select {
+  width: 10em;
+}
+/* кнопки */
+.button {
+  display: inline-block;
+  vertical-align: baseline;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font: 16px/100% Arial, Helvetica, sans-serif;
+  padding: .4em .5em .57em .5em;
+  border-radius: .3em;
+}
+.dtp-button {
+  color: #fff;
+  background: #7d7070;
+  border: solid #5d5353 1px;
+  font-size: 1.3em;
+}
+.be-button {
+  color: #fff;
+  background: #7d7070;
+  border: solid #5d5353 .08em;
+  font-size: 1.1em;
+}
+/* вспомогательные элементы */
+.row {
+  clear: both;
+}
+.step {
+  height: 2em;
+}
+.down {
+  height: 3em;
+}
+.sch-mrgn {
+  height: .8em;
+}

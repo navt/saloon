@@ -1,5 +1,8 @@
 <div class="scheme">
 	<div class="sch-mrgn"></div>
+	<div class="steps">
+		Шаг 2 (из 3-х). Выберите столик.
+	</div>
 	<?php if (isset($_SESSION['err_msg']) && $_SESSION['err_msg'] !=''):?>
 		<div class="red">
 			<?php echo $_SESSION['err_msg']; deleteMsg(); ?>
@@ -16,6 +19,7 @@
 		<input type="hidden" name="q" value="time">
 		<button class="button dtp-button">Зафиксировать время</button>
 	</form>
+	<div class="sch-mrgn"></div>
 	<object type="image/svg+xml" data="<?php echo base_url('assets/app-images/scheme-temp.svg?').time();?>" width="100%" height="10%" ></object>
 	<div class="sch-mrgn"></div>
 

@@ -49,28 +49,52 @@ class Scheme extends CI_Controller {
 		$data['js_files'] = $this->js_files;
 
 		$baseDir = dirname(dirname(dirname(__FILE__))).D_S;
-		$xml = simplexml_load_file($baseDir.'assets'.D_S.'app-images'.D_S.$this->config->item('scheme'));
+		$buffer = '';
+		$buffer = file_get_contents($baseDir.'assets'.D_S.'app-images'.D_S.$this->config->item('scheme'));
 
 		$queryRes = $this->scheme_model->bookedOnDate();
 
 		if ($queryRes === false) {
+			$xml = new SimpleXMLElement($buffer);
+			$buffer = null;
 			foreach ($xml->a as $link) {
-				$link->rect['class'] = 'green';
+				if (isset($link->rect))    $link->rect['class']    = 'green';
+				if (isset($link->ellipse)) $link->ellipse['class'] = 'green';
 			}
+			$xml->asXML($baseDir.'assets'.D_S.'app-images'.D_S.'scheme-temp.svg');
 		} else {
+			// получаем номера столиков
 			$work = array();
 			foreach ($queryRes as $item) {
 				$work[] = $item['num_table'];
 			}
+			// модифицируем xml, чтобы работать с атрибутом тега <a>
+			// array - для быстрого расширения возможностей
+			$buffer = str_replace(array('xlink:href'), array('xlinkhref'), $buffer);
+			$xml = new SimpleXMLElement($buffer);
+			$buffer = null;
+
 			foreach ($xml->a as $link) {
-				if (in_array($link->rect['id'], $work)) {
-					$link->rect['class'] = 'ruddy';
-				} else $link->rect['class'] = 'green';
+				// для прямоугольных столов
+				if (isset($link->rect)) {
+					if (in_array($link->rect['id'], $work)) {
+						$link->rect['class'] = 'ruddy';
+						$link['xlinkhref'] = "javascript:void(0);";
+					} else $link->rect['class'] = 'green';
+				}
+				// для столов эллипсов
+				if (isset($link->ellipse)) {
+					if (in_array($link->ellipse['id'], $work)) {
+						$link->ellipse['class'] = 'ruddy';
+						$link['xlinkhref'] = "javascript:void(0);";
+					} else $link->ellipse['class'] = 'green';
+				}
 			}
-
+			$buffer = $xml->asXML();
+			$buffer = str_replace(array('xlinkhref'), array('xlink:href'), $buffer);
+			file_put_contents($baseDir.'assets'.D_S.'app-images'.D_S.'scheme-temp.svg', $buffer);
+			$buffer = null;
 		}
-
-		$xml->asXML($baseDir.'assets'.D_S.'app-images'.D_S.'scheme-temp.svg');
 
 		$this->load->view('scheme/upper', $data);
 		$this->load->view('scheme/middle_d');

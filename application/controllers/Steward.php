@@ -21,10 +21,15 @@ class Steward extends CI_Controller {
 
 		$get =[];
 		$get = $this->input->get(null, true);
-		if ($get == array()) {
-			// форма авторизации
-			$this->viewForm();
-		} elseif ($get['button'] == 'Войти') {
+		if ($get === array()) {
+			if ($this->loginFact()) {
+				// если уже есть факт авторизации, то редирект
+				redirect('/steward/orders/');
+			} else {
+				// иначе, показываем форму авторизации
+				$this->viewForm();
+			}
+		} elseif ($get['button'] === 'Войти') {
 			$_SESSION['err_msg'] = '';
 			$userName = trim($get['userName']);
 			$passWord = trim($get['passWord']);
@@ -40,13 +45,13 @@ class Steward extends CI_Controller {
 			$filter ='~^[a-zA-Z0-9_-]+$~u';
 			$flag = filter_var($passWord, FILTER_VALIDATE_REGEXP, ['options'=>['regexp'=>$filter]]);
 			if ($flag === false) {
-				$_SESSION['err_msg'] = 'Пароль должен состоять из латинских букв, цифр, - и _ . '.__METHOD__;
+				$_SESSION['err_msg'] = 'В пароле использован неверный набор символов . '.__METHOD__;
 
 				redirect('/steward/viewForm/');
 			}
 			// если всё прошло, то запрос к БД
 			$queryRes = $this->steward_model->stewardData($userName);
-			//echo $queryRes[0]['stw_password'];
+
 			if ($queryRes === false) {
 				$_SESSION['err_msg'] = "Не нашлось пары {$userName} / {$passWord} в БД. ".__METHOD__;
 				redirect('/steward/viewForm/');
@@ -72,18 +77,27 @@ class Steward extends CI_Controller {
     {
     	$this->load->view('steward/login_view');
     }
-    private function checkAuth()
+
+    private function loginFact()
     {
-		if (isset($_SESSION['auth'])){
+    	$flag = false;                 // инициализация переменной
+    	if (isset($_SESSION['auth'])){
 	    	if (is_array($_SESSION['auth'])) {
 	    		$item = array();
 	    		$item = $_SESSION['auth'];
-	    		if ($item['is_login'] === true && $item['user_agent'] == $this->input->server('HTTP_USER_AGENT')) {
-	    			$noError = true;
-	    		} else $noError = false;
-	    	} else $noError = false;
-	    } else $noError = false;
-    	if (!$noError) show_error("Сейчас доступ к этому адресу запрещён. Авторизируйтесь.");
+	    		if ($item['is_login'] === true && $item['user_agent'] === $this->input->server('HTTP_USER_AGENT')) {
+	    			$flag = true;
+	    		} else $flag = false;
+	    	} else $flag = false;
+	    } else $flag = false;
+
+	    return $flag;
+    }
+
+    private function checkAuth()
+    {
+		$flag = $this->loginFact();
+    	if (!$flag) show_error("Сейчас доступ к этому адресу запрещён. Авторизируйтесь.", 403, 'Ограничения в доступе для клиента');
     }
 
 	public function orders()
@@ -137,7 +151,7 @@ class Steward extends CI_Controller {
 		$this->load->view('steward/crud_view.php',$output);
 	}
 
-	public function fullTabName($name='')
+	private function fullTabName($name='')
 	{
 		if ($name != ''){
 			return $this->config->item('t_prefix').$name;
