@@ -320,7 +320,9 @@ body {
   margin: 0 auto;
 }
 .login_box {
-  width: 22em;
+  max-width: 32em;
+  min-width: 18em;
+  padding: 0 1% 0 1%;
   /* центрируем основной контейнер */
   margin: 0 auto;
 }
@@ -382,7 +384,7 @@ body {
   font-size: 1.1em;
 }
 .w-input {
-  width: 16em;
+  width: 100% ;
 }
 .w-select {
   width: 10em;
@@ -401,7 +403,7 @@ body {
 }
 .dtp-button {
   color: #fff;
-  background: #7d7070;
+  background-image: linear-gradient(to top, #7d7070, #cc9c76);
   border: solid #5d5353 1px;
   font-size: 1.3em;
 }

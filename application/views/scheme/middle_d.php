@@ -1,7 +1,7 @@
 <div class="scheme">
 	<div class="sch-mrgn"></div>
 	<div class="steps">
-		Шаг 2 (из 3-х). Выберите столик.
+		Шаг 2 (из 3-х). Выберите "зелёный" столик.
 	</div>
 	<?php if (isset($_SESSION['err_msg']) && $_SESSION['err_msg'] !=''):?>
 		<div class="red">
@@ -20,7 +20,10 @@
 		<button class="button dtp-button">Зафиксировать время</button>
 	</form>
 	<div class="sch-mrgn"></div>
-	<object type="image/svg+xml" data="<?php echo base_url('assets/app-images/scheme-temp.svg?').time();?>" width="100%" height="10%" ></object>
+	<!--
+	<object type="image/svg+xml" data="<?php/*  echo base_url('assets/app-images/scheme-temp.svg?').time();*/ ?>" width="100%" height="100%" ></object>
+	-->
+	<?php echo $svg; ?>
 	<div class="sch-mrgn"></div>
 
 </div>

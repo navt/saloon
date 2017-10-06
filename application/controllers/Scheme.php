@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Scheme extends CI_Controller {
 
 	public $css_files = [
+		'assets/app-css/style.css',
 		'assets/app-css/jquery-ui.min.css',
-		'assets/app-css/jquery-ui-timepicker-addon.css',
-		'assets/app-css/style.css' ];
+		'assets/app-css/jquery-ui-timepicker-addon.css' ];
 	public $js_files = [
 		'assets/app-js/jquery-1.12.4.min.js',
 		'assets/app-js/jquery-ui.min.js',
@@ -29,7 +29,7 @@ class Scheme extends CI_Controller {
 		$data['js_files'] = $this->js_files;
 
 		if (!isset($_SESSION['order_date'])) {
-			// и клиент видит схему с чёрными столами и должен ввести время
+			// и клиент видит схему с "чёрными"" столами и должен ввести время
 			$this->load->view('scheme/upper', $data);
 			$this->load->view('scheme/middle_i');
 			$this->load->view('scheme/ground');
@@ -61,7 +61,9 @@ class Scheme extends CI_Controller {
 				if (isset($link->rect))    $link->rect['class']    = 'green';
 				if (isset($link->ellipse)) $link->ellipse['class'] = 'green';
 			}
-			$xml->asXML($baseDir.'assets'.D_S.'app-images'.D_S.'scheme-temp.svg');
+			// закомментирован вариант кода с использованием временного файла
+			//$xml->asXML($baseDir.'assets'.D_S.'app-images'.D_S.'scheme-temp.svg');
+			$buffer = $xml->asXML();
 		} else {
 			// получаем номера столиков
 			$work = array();
@@ -69,7 +71,7 @@ class Scheme extends CI_Controller {
 				$work[] = $item['num_table'];
 			}
 			// модифицируем xml, чтобы работать с атрибутом тега <a>
-			// array - для быстрого расширения возможностей
+			// array в str_replace() - для быстрого расширения возможностей
 			$buffer = str_replace(array('xlink:href'), array('xlinkhref'), $buffer);
 			$xml = new SimpleXMLElement($buffer);
 			$buffer = null;
@@ -92,10 +94,12 @@ class Scheme extends CI_Controller {
 			}
 			$buffer = $xml->asXML();
 			$buffer = str_replace(array('xlinkhref'), array('xlink:href'), $buffer);
+			/*
 			file_put_contents($baseDir.'assets'.D_S.'app-images'.D_S.'scheme-temp.svg', $buffer);
 			$buffer = null;
+			*/
 		}
-
+		$data['svg'] = $buffer;
 		$this->load->view('scheme/upper', $data);
 		$this->load->view('scheme/middle_d');
 		$this->load->view('scheme/ground');

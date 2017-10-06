@@ -16,6 +16,6 @@
 		<button class="button dtp-button">Зафиксировать время</button>
 	</form>
 	<div class="sch-mrgn"></div>
-	<object type="image/svg+xml" data="<?php echo base_url('assets/app-images/scheme-init.svg?').time();?>" width="100%" height="10%" ></object>
+	<object type="image/svg+xml" data="<?php echo base_url('assets/app-images/scheme-init.svg?').time();?>" width="100%" height="100%" ></object>
 	<div class="sch-mrgn"></div>
 </div>
