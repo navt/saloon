@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Scheme extends CI_Controller {
 
-	public $css_files = [
+	private $css_files = [
 		'assets/app-css/style.css',
 		'assets/app-css/jquery-ui.min.css',
 		'assets/app-css/jquery-ui-timepicker-addon.css' ];
-	public $js_files = [
+	private $js_files = [
 		'assets/app-js/jquery-1.12.4.min.js',
 		'assets/app-js/jquery-ui.min.js',
 		'assets/app-js/jquery-ui-timepicker-addon.js' ];
